@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7G7-iH-P8B">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Progress View-->
+        <scene sceneID="zcE-Rg-Aaq">
+            <objects>
+                <viewController title="Progress View" id="7G7-iH-P8B" customClass="ProgressViewViewController" customModule="ViewCatalog" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IjD-le-vU3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2zf-aa-uex">
+                                <rect key="frame" x="30" y="446" width="354" height="4"/>
+                                <color key="progressTintColor" systemColor="systemRedColor"/>
+                                <color key="trackTintColor" systemColor="systemYellowColor"/>
+                            </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w0F-Yv-fOk">
+                                <rect key="frame" x="20" y="800" width="374" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="syQ-G9-dsT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Update"/>
+                                <connections>
+                                    <action selector="updateBtn:" destination="7G7-iH-P8B" eventType="touchUpInside" id="RZu-Vr-XDu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dH5-sA-pge"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2zf-aa-uex" firstAttribute="leading" secondItem="dH5-sA-pge" secondAttribute="leading" constant="30" id="5Jw-FT-iub"/>
+                            <constraint firstItem="2zf-aa-uex" firstAttribute="centerY" secondItem="IjD-le-vU3" secondAttribute="centerY" id="HPE-oB-E3V"/>
+                            <constraint firstItem="w0F-Yv-fOk" firstAttribute="leading" secondItem="dH5-sA-pge" secondAttribute="leading" constant="20" id="Lxe-f1-wW7"/>
+                            <constraint firstItem="dH5-sA-pge" firstAttribute="trailing" secondItem="2zf-aa-uex" secondAttribute="trailing" constant="30" id="XNK-dh-S1p"/>
+                            <constraint firstItem="2zf-aa-uex" firstAttribute="centerX" secondItem="IjD-le-vU3" secondAttribute="centerX" id="Ycx-VO-qIZ"/>
+                            <constraint firstItem="w0F-Yv-fOk" firstAttribute="bottom" secondItem="dH5-sA-pge" secondAttribute="bottom" id="c9t-CV-z9f"/>
+                            <constraint firstItem="dH5-sA-pge" firstAttribute="trailing" secondItem="w0F-Yv-fOk" secondAttribute="trailing" constant="20" id="l0O-fk-a6m"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="progressBar" destination="2zf-aa-uex" id="8Or-tC-OVt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ir5-Gs-OvD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2785.507246376812" y="940.84821428571422"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
