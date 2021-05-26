@@ -1,25 +1,4 @@
-//
-//  Mastering iOS
-//  Copyright (c) KxCoding <help@kxcoding.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
+
 //: [Previous](@previous)
 
 import Foundation
@@ -49,8 +28,19 @@ extension Date {
 let calendar = Calendar.current
 let worldCup2002 = Date(year: 2002, month: 5, day: 31)!
 
+let now = Date()
+let today = calendar.startOfDay(for: now) // 특정 날짜의 일 시작 시간 부터 표시 몇년도 몇월 00시로 데이트 리턴
 
 
+var components = DateComponents()
+components.day = 100
+components.hour = 12
+calendar.date(byAdding: components, to: now)
+calendar.date(byAdding: components, to: today)
 
+
+components = calendar.dateComponents([.day], from: worldCup2002, to: today) // 확인하고 싶은 컴포넌트와 비교날짜
+
+components.day
 
 //: [Next](@next)
