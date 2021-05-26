@@ -1,25 +1,3 @@
-//
-//  Mastering iOS
-//  Copyright (c) KxCoding <help@kxcoding.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
 
 import UIKit
 
@@ -36,15 +14,21 @@ class ImageAnimationViewController: UIViewController {
     
     @IBAction func startAnimation(_ sender: Any) {
         
+        imageView.startAnimating()
     }
     
     @IBAction func stopAnimation(_ sender: Any) {
-        
+        if imageView.isAnimating {
+            imageView.stopAnimating()
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        imageView.animationImages = images // colloection 형태로 애니매이션 할 이미지 넣기
         
+        imageView.animationDuration = 1.0 // 애니메이션 설정 속도 1초!
+        imageView.animationRepeatCount = 3 // 반복횟수
     }
 }
