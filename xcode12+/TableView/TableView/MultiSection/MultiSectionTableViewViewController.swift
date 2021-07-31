@@ -1,31 +1,13 @@
-//
-//  Mastering iOS
-//  Copyright (c) KxCoding <help@kxcoding.com>
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-//  THE SOFTWARE.
-//
+
 
 import UIKit
 
 class MultiSectionTableViewViewController: UIViewController {
     
     let list = PhotosSettingSection.generateData()
+    
+    
+    @IBOutlet weak var listTableView: UITableView!
     
     @objc func toggleHideAlbum(_ sender: UISwitch) {
         print(#function)
@@ -73,16 +55,53 @@ class MultiSectionTableViewViewController: UIViewController {
         
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let selected = listTableView.indexPathForSelectedRow {
+            listTableView.deselectRow(at: selected, animated: true)
+        }
+    }
 }
 
-
-
-
-
-
-
-
-
+extension MultiSectionTableViewViewController : UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return list.count // 섹션 개수
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return list[section].items.count // 섹션당 로우 개수
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let target = list[indexPath.section].items[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: target.type.rawValue, for: indexPath)
+        
+        switch target.type {
+        case .disclosure:
+            cell.textLabel?.text = target.title
+            cell.imageView?.image = UIImage(systemName: target.imageName ?? "")
+        case .switch :
+            cell.textLabel?.text = target.title
+            if let switchView = cell.accessoryView as? UISwitch {
+                switchView.isOn = target.on
+            }
+        case .action :
+            cell.textLabel?.text = target.title
+        case .checkmark :
+            cell.textLabel?.text = target.title
+            cell.accessoryType = target.on ? .checkmark : .none
+        }
+        return cell // indexpath에 들어갈 데이터
+    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return list[section].header // 헤더
+    }
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return list[section].footer // 푸터
+    }
+    
+}
 
 
 
