@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A059F926266FA8E400D2BF93 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A059F925266FA8E400D2BF93 /* SwitchTableViewCell.swift */; };
+		A082E37126EF96D600446A7D /* CustomAccessoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A082E37026EF96D600446A7D /* CustomAccessoryTableViewCell.swift */; };
 		AA0401B725EBA22300535A6A /* TableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA0401B625EBA22300535A6A /* TableViewController.storyboard */; };
 		AA0880E420EEA136004BCAEA /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880E320EEA136004BCAEA /* Products.swift */; };
 		AA0880E620EEA301004BCAEA /* SingleSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880E520EEA301004BCAEA /* SingleSelectionViewController.swift */; };
@@ -59,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		A059F925266FA8E400D2BF93 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		A082E37026EF96D600446A7D /* CustomAccessoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAccessoryTableViewCell.swift; sourceTree = "<group>"; };
 		AA0401B625EBA22300535A6A /* TableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TableViewController.storyboard; sourceTree = "<group>"; };
 		AA0880E320EEA136004BCAEA /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		AA0880E520EEA301004BCAEA /* SingleSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSelectionViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			children = (
 				AAA1E1E525E3AB9F006BC597 /* AccessoryView.storyboard */,
 				AA871A4820E372B8004E2E8B /* AccessoryViewViewController.swift */,
+				A082E37026EF96D600446A7D /* CustomAccessoryTableViewCell.swift */,
 			);
 			path = AccessoryView;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				AA7CDBA920ED8A94004EFB9C /* Region.swift in Sources */,
 				AA0880F020EF15F8004BCAEA /* SwipeActionViewController.swift in Sources */,
 				AAA71FE420DF46CF00C5E2AB /* TableViewBasicsViewController.swift in Sources */,
+				A082E37126EF96D600446A7D /* CustomAccessoryTableViewCell.swift in Sources */,
 				AA5016F420EC26AE00F82883 /* WorldTime.swift in Sources */,
 				AA62FF7120EE5A9200C27EF0 /* SectionIndexViewController.swift in Sources */,
 				AAE2BD3220EFF3FC00FD64F1 /* HeaderFooterViewViewController.swift in Sources */,

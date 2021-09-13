@@ -11,7 +11,6 @@ class TableViewBasicsViewController: UIViewController {
     }
 }
 
-
 extension TableViewBasicsViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("#1", #function)

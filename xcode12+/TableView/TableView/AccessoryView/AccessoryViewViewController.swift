@@ -48,12 +48,46 @@ extension AccessoryViewViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
+        if indexPath.row == 4 {
+            return tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath)
+        }
+        switch indexPath.row {
+        case 0:
+            cell.textLabel?.text = "Disclosure Indicator"
+            cell.accessoryType = .disclosureIndicator
+        case 1 :
+            cell.textLabel?.text = "Detail Button"
+            cell.accessoryType = .detailButton
+        case 2 :
+            cell.textLabel?.text = "Detail Disclosure Indicator"
+            cell.accessoryType = .detailDisclosureButton
+        case 3 :
+            cell.textLabel?.text = "Checkmark"
+            cell.accessoryType = .checkmark
+        default:
+            cell.textLabel?.text = "None"
+            cell.accessoryType = .none
+        }
         return cell
     }
 }
 
-
+extension AccessoryViewViewController : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // push 방식으로 화면 전환
+        // cell 구분에 따라
+        switch indexPath.row {
+        case 0:
+            performSegue(withIdentifier: "pushSegue", sender: nil)
+        default:
+            performSegue(withIdentifier: "modalSegue", sender: nil)
+        }
+        
+    }
+    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+        performSegue(withIdentifier: "modalSegue", sender: nil)
+    }
+}
 
 
 
