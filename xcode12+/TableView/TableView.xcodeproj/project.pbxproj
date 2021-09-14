@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A059F926266FA8E400D2BF93 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A059F925266FA8E400D2BF93 /* SwitchTableViewCell.swift */; };
+		A0720A6226F0A6CB0021B81F /* CustomHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0720A6126F0A6CB0021B81F /* CustomHeader.xib */; };
+		A0720A6426F0A7F10021B81F /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0720A6326F0A7F10021B81F /* CustomHeaderView.swift */; };
 		A082E37126EF96D600446A7D /* CustomAccessoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A082E37026EF96D600446A7D /* CustomAccessoryTableViewCell.swift */; };
 		A0F0229C26F0481600ADF131 /* TimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F0229B26F0481600ADF131 /* TimeTableViewCell.swift */; };
 		A0F0229E26F070F500ADF131 /* SharedCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0F0229D26F070F500ADF131 /* SharedCustomCell.xib */; };
@@ -62,6 +64,8 @@
 
 /* Begin PBXFileReference section */
 		A059F925266FA8E400D2BF93 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		A0720A6126F0A6CB0021B81F /* CustomHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomHeader.xib; sourceTree = "<group>"; };
+		A0720A6326F0A7F10021B81F /* CustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
 		A082E37026EF96D600446A7D /* CustomAccessoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAccessoryTableViewCell.swift; sourceTree = "<group>"; };
 		A0F0229B26F0481600ADF131 /* TimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewCell.swift; sourceTree = "<group>"; };
 		A0F0229D26F070F500ADF131 /* SharedCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SharedCustomCell.xib; sourceTree = "<group>"; };
@@ -220,6 +224,8 @@
 			children = (
 				AAA1E1F425E3ACAD006BC597 /* HeaderAndFooter.storyboard */,
 				AA7CDBAA20ED8DB3004EFB9C /* HeaderAndFooterViewController.swift */,
+				A0720A6126F0A6CB0021B81F /* CustomHeader.xib */,
+				A0720A6326F0A7F10021B81F /* CustomHeaderView.swift */,
 			);
 			path = SectionHeaderFooter;
 			sourceTree = "<group>";
@@ -417,6 +423,7 @@
 				AAA1E21C25E3B038006BC597 /* Reordering.storyboard in Resources */,
 				AAA1E1D625E3A98F006BC597 /* MultiSection.storyboard in Resources */,
 				AACF6A0620DA448400DE209C /* LaunchScreen.storyboard in Resources */,
+				A0720A6226F0A6CB0021B81F /* CustomHeader.xib in Resources */,
 				AAA1E1DB25E3AA12006BC597 /* Separator.storyboard in Resources */,
 				AAA1E20425E3ADA9006BC597 /* SingleSelection.storyboard in Resources */,
 				AAA1E1E025E3AA89006BC597 /* TableViewCell.storyboard in Resources */,
@@ -447,6 +454,7 @@
 			files = (
 				A0F0229C26F0481600ADF131 /* TimeTableViewCell.swift in Sources */,
 				AAE2BD3020EFCAB800FD64F1 /* Landscape.swift in Sources */,
+				A0720A6426F0A7F10021B81F /* CustomHeaderView.swift in Sources */,
 				AA7CDBA320ED2DBC004EFB9C /* DetailViewController.swift in Sources */,
 				AA7CDBA120ED1784004EFB9C /* TableViewCellViewController.swift in Sources */,
 				AA5016F820EC3D6E00F82883 /* SelfSizingCellViewController.swift in Sources */,

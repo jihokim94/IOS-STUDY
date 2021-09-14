@@ -32,6 +32,8 @@ class SectionHeaderAndFooterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let headerNib = UINib(nibName: "CustomHeader", bundle: nil)
+        listTableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "CustomHeader")
     }
 }
 
@@ -44,7 +46,7 @@ extension SectionHeaderAndFooterViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list[section].countries.count
+        return list[section].countries.count // 섹션당 로우 개수
     }
     
     
@@ -56,13 +58,55 @@ extension SectionHeaderAndFooterViewController: UITableViewDataSource {
         
         return cell
     }
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return list[section].title
+//    }
 }
 
 
 
 
 extension SectionHeaderAndFooterViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as! CustomHeaderView
+        
+        
+        headerView.titleLabel.text = list[section].title
+        headerView.countLabel.text = "\(list[section].countries.count)"
+        
+        
+        return headerView
+        
+//        headerView?.textLabel?.text = list[section].title
+//        headerView?.detailTextLabel?.text = "lorem ipsum"
+//
+//        headerView?.textLabel?.textColor = .systemBlue
+//        headerView?.textLabel?.textAlignment = .center
+//
+//        if headerView?.backgroundView == nil {
+//            let v = UIView(frame: .zero)
+//            v.backgroundColor = .secondarySystemFill
+//            v.isUserInteractionEnabled = false // 터치 꺼버리기
+//            headerView?.backgroundView = v
+//        }
+       
+    }
     
+//    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+//        // 타입 캐스팅을 통해 우리가 보여주고자 하는 뷰 존재 확인
+//        if let headerView = view as? UITableViewHeaderFooterView {
+//            //존재 한다면 아래와 같은 어트르뷰트 속성 지정
+//            headerView.textLabel?.textColor = .systemBlue
+//            headerView.textLabel?.textAlignment = .center
+//
+//            if headerView.backgroundView == nil {
+//                let v = UIView(frame: .zero)
+//                v.backgroundColor = .secondarySystemFill
+//                v.isUserInteractionEnabled = false // 터치 꺼버리기
+//                headerView.backgroundView = v
+//            }
+//        }
+//    }
 }
 
 
