@@ -27,9 +27,18 @@ class CustomCellViewController: UIViewController {
     
     let list = WorldTime.generateData()
     
+    
+    
+    @IBOutlet weak var listTableView: UITableView!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // sharedCustomCell의 프로토 타입을 사용하기위해
+        let cellNib = UINib(nibName: "SharedCustomCell", bundle: nil)
+        listTableView.register(cellNib, forCellReuseIdentifier: "SharedCustomCell")
+    
     }
 }
 
@@ -43,11 +52,31 @@ extension CustomCellViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SharedCustomCell", for: indexPath) as! TimeTableViewCell
         
         let target = list[indexPath.row]
-        cell.textLabel?.text = target.location
-        cell.detailTextLabel?.text = "\(target.date) \(target.time)"
+        
+        cell.dateLabel.text = "\(target.date), \(target.hoursFromGMT) 시간"
+        cell.locationLabel.text = target.location
+        cell.ampaLabel.text = target.ampm
+        cell.timeLabel.text = target.time
+        
+        
+//        // 아웃렛없이 태그로 접근하기!
+//        if let dateLabel = cell.viewWithTag(100) as? UILabel {
+//            dateLabel.text = "\(target.date), \(target.hoursFromGMT) 시간"
+//        }
+//        if let locationLabel = cell.viewWithTag(200) as? UILabel {
+//            locationLabel.text = target.location
+//        }
+//        if let ampmLabel = cell.viewWithTag(300) as? UILabel {
+//            ampmLabel.text = target.ampm
+//        }
+//        if let timeLabel = cell.viewWithTag(400) as? UILabel {
+//            timeLabel.text = target.time
+//        }
+        
+
         
         return cell
     }

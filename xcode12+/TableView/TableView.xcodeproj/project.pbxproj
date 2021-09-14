@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A059F926266FA8E400D2BF93 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A059F925266FA8E400D2BF93 /* SwitchTableViewCell.swift */; };
 		A082E37126EF96D600446A7D /* CustomAccessoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A082E37026EF96D600446A7D /* CustomAccessoryTableViewCell.swift */; };
+		A0F0229C26F0481600ADF131 /* TimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F0229B26F0481600ADF131 /* TimeTableViewCell.swift */; };
+		A0F0229E26F070F500ADF131 /* SharedCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0F0229D26F070F500ADF131 /* SharedCustomCell.xib */; };
 		AA0401B725EBA22300535A6A /* TableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA0401B625EBA22300535A6A /* TableViewController.storyboard */; };
 		AA0880E420EEA136004BCAEA /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880E320EEA136004BCAEA /* Products.swift */; };
 		AA0880E620EEA301004BCAEA /* SingleSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0880E520EEA301004BCAEA /* SingleSelectionViewController.swift */; };
@@ -61,6 +63,8 @@
 /* Begin PBXFileReference section */
 		A059F925266FA8E400D2BF93 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		A082E37026EF96D600446A7D /* CustomAccessoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAccessoryTableViewCell.swift; sourceTree = "<group>"; };
+		A0F0229B26F0481600ADF131 /* TimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewCell.swift; sourceTree = "<group>"; };
+		A0F0229D26F070F500ADF131 /* SharedCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SharedCustomCell.xib; sourceTree = "<group>"; };
 		AA0401B625EBA22300535A6A /* TableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TableViewController.storyboard; sourceTree = "<group>"; };
 		AA0880E320EEA136004BCAEA /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
 		AA0880E520EEA301004BCAEA /* SingleSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSelectionViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +209,8 @@
 			children = (
 				AAA1E1EF25E3AC44006BC597 /* CustomCell.storyboard */,
 				AA5016F120EC098D00F82883 /* CustomCellViewController.swift */,
+				A0F0229B26F0481600ADF131 /* TimeTableViewCell.swift */,
+				A0F0229D26F070F500ADF131 /* SharedCustomCell.xib */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -414,6 +420,7 @@
 				AAA1E1DB25E3AA12006BC597 /* Separator.storyboard in Resources */,
 				AAA1E20425E3ADA9006BC597 /* SingleSelection.storyboard in Resources */,
 				AAA1E1E025E3AA89006BC597 /* TableViewCell.storyboard in Resources */,
+				A0F0229E26F070F500ADF131 /* SharedCustomCell.xib in Resources */,
 				AAA1E20D25E3AF75006BC597 /* EditMode.storyboard in Resources */,
 				AACF6A0320DA448400DE209C /* Assets.xcassets in Resources */,
 				AAA1E21225E3AFB7006BC597 /* RowAction.storyboard in Resources */,
@@ -438,6 +445,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0F0229C26F0481600ADF131 /* TimeTableViewCell.swift in Sources */,
 				AAE2BD3020EFCAB800FD64F1 /* Landscape.swift in Sources */,
 				AA7CDBA320ED2DBC004EFB9C /* DetailViewController.swift in Sources */,
 				AA7CDBA120ED1784004EFB9C /* TableViewCellViewController.swift in Sources */,
