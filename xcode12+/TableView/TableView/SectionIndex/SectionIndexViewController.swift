@@ -32,6 +32,9 @@ class SectionIndexViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        listTableView.sectionIndexColor = UIColor.systemBlue
+        listTableView.sectionIndexBackgroundColor = UIColor.secondarySystemBackground
+        listTableView.sectionIndexTrackingBackgroundColor = UIColor.systemPink
         
     }
 }
@@ -62,6 +65,16 @@ extension SectionIndexViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return list[section].title
+    }
+    // 섹션 인덱스 배열 넘겨주면 알아서 옆에 생긴다
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return stride(from: 0, to: list.count, by: 2).map { list[$0].title }
+        //짝수 인덱스들을 리턴
+        
+    }
+    // 현재 보고 있는 섹션 위치와 트랙킹 인덱스 섹션의 위치가 다르므로 index 위치조정 설정
+    func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
+        return index * 2
     }
 }
 

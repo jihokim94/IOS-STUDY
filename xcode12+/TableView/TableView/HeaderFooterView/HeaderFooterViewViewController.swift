@@ -30,7 +30,6 @@ class HeaderFooterViewViewController: UIViewController {
     let list = ["iMac Pro", "iMac 5K", "Macbook Pro", "iPad Pro", "iPad", "iPad mini", "iPhone 8", "iPhone 8 Plus", "iPhone SE", "iPhone X", "Mac mini", "Apple TV", "Apple Watch"]
     var filteredList = ["iMac Pro", "iMac 5K", "Macbook Pro", "iPad Pro", "iPad", "iPad mini", "iPhone 8", "iPhone 8 Plus", "iPhone SE", "iPhone X", "Mac mini", "Apple TV", "Apple Watch"]
     
-    
     lazy var resultLabel: UILabel = { [weak self] in
         var frame = self?.view.bounds ?? .zero
         frame.size.height = 50
@@ -41,7 +40,6 @@ class HeaderFooterViewViewController: UIViewController {
         lbl.backgroundColor = UIColor.gray
         return lbl
     }()
-    
     
     @objc func handle(notification: Notification) {
         switch notification.name {
@@ -60,7 +58,6 @@ class HeaderFooterViewViewController: UIViewController {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,10 +66,8 @@ class HeaderFooterViewViewController: UIViewController {
     }
 }
 
-
-
-
 extension HeaderFooterViewViewController: UISearchBarDelegate {
+    
     func filter(with keyword: String) {
         if keyword.count > 0 {
             filteredList = list.filter { $0.contains(keyword) }
@@ -84,27 +79,25 @@ extension HeaderFooterViewViewController: UISearchBarDelegate {
         resultLabel.text = "\(filteredList.count) result(s) found"
     }
     
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filter(with: searchText)
     }
-    
-    
+    //Tells the delegate when the user begins editing the search text.
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        
+        listTableView.tableFooterView = resultLabel
     }
     
-    
+    //Tells the delegate that the user finished editing the search text.
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        
+        searchBar.text = nil
+        resultLabel.text = "0 result(s) found"
+        listTableView.tableFooterView = nil
     }
-    
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         filter(with: searchBar.text ?? "")
     }
-    
-    
+    // cancel 취소
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         filteredList = list
         listTableView.reloadData()
@@ -112,8 +105,6 @@ extension HeaderFooterViewViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
     }
 }
-
-
 
 
 extension HeaderFooterViewViewController: UITableViewDataSource {
@@ -131,16 +122,3 @@ extension HeaderFooterViewViewController: UITableViewDataSource {
         return cell
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

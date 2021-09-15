@@ -31,12 +31,32 @@ class SingleSelectionViewController: UIViewController {
     
     
     func selectRandomCell() {
+        // 랜덤으로 인덱스 뽑기
+        let section = Int.random(in: 0 ..< list.count)
+        let row = Int.random(in: 0 ..< list[section].countries.count)
+        let targetIndexPath = IndexPath(row: row, section: section)
         
+        // 셀렉트되는 인덱스로 탑형태의 스코롤 포지션 애니메이션과 함께 주기
+        listTableView.selectRow(at: targetIndexPath, animated: true, scrollPosition: .top)
+        
+    
     }
     
     
     func deselect() {
-        
+        // An index path identifying the row and section of the selected row.
+        // 선택된 셀렉트있는지 여부 확인
+        if let selected : IndexPath = listTableView.indexPathForSelectedRow {
+            // 있다면 디셀렉티드 설정
+            listTableView.deselectRow(at: selected, animated: true)
+            
+            // 선택이 해제되고 1초뒤 맨 상단으로 스크롤해야징~~~
+            DispatchQueue.main.asyncAfter(deadline: .now()+1) { [weak self] in
+                //보낼 위치
+                let first = IndexPath(row: 0, section: 0)
+                self?.listTableView.scrollToRow(at: first, at: .top, animated: true)
+            }
+        }
     }
     
     
@@ -104,7 +124,27 @@ extension SingleSelectionViewController: UITableViewDataSource {
 
 
 extension SingleSelectionViewController: UITableViewDelegate {
-    
+    // 선택되기 진적에 실행
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        if indexPath.row == 0 {
+            return nil
+        }
+        
+        return indexPath
+    }
+    // 선택한후에 실행
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let target = list[indexPath.section].countries[indexPath.row]
+        showAlert(with: target)
+    }
+    // 선택이 해제 되기전에 실행
+    func tableView(_ tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath? {
+        return indexPath
+    }
+    // 선택되었던것이 해체된 이후에 실행됨
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        print(#function , indexPath)
+    }
 }
 
 
@@ -127,6 +167,16 @@ class SingleSelectionCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        textLabel?.textColor = .systemGray3
+        textLabel?.highlightedTextColor = .black
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
     }
 }
 

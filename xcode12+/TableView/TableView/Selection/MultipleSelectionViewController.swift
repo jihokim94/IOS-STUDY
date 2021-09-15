@@ -32,7 +32,13 @@ class MultipleSelectionViewController: UIViewController {
     
     
     @objc func report() {
-        
+        if let selectedIndexPaths = listTableView.indexPathsForSelectedRows {
+            let selected = selectedIndexPaths.map { index in
+                list[index.section].countries[index.row]
+            }.joined(separator: "\n") // 줄바꾸기 추가한 문자열~
+            
+            showAlert(with: selected)
+        }
     }
     
     
@@ -75,7 +81,12 @@ extension MultipleSelectionViewController: UITableViewDataSource {
 
 
 class MultipleSelectionCell: UITableViewCell {
-    
+    // 셀렉티드 되있을때 설정
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        accessoryType = selected ? .checkmark : .none
+    }
 }
 
 
