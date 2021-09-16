@@ -44,7 +44,6 @@ class SelfSizingCellViewController: UIViewController {
 }
 
 
-
 extension SelfSizingCellViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list.count
